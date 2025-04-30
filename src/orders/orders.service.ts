@@ -98,14 +98,6 @@ export class OrdersService extends PrismaClient implements OnModuleInit {
         message: 'Check logs',
       });
     }
-
-    // return {
-    //   service: 'Orders Microservice',
-    //   createOrderDto: createOrderDto,
-    // };
-    // return this.order.create({
-    //   data: createOrderDto,
-    // });
   }
 
   async findAll(paginationDto: OrderPaginationDto) {
@@ -133,6 +125,15 @@ export class OrdersService extends PrismaClient implements OnModuleInit {
       where: {
         id: id,
       },
+      include: {
+        OrderItem: {
+          select: {
+            price: true,
+            quantity: true,
+            productId: true,
+          },
+        },
+      },
     });
 
     if (!order) {
@@ -142,7 +143,24 @@ export class OrdersService extends PrismaClient implements OnModuleInit {
       });
     }
 
-    return order;
+    const productIds = order.OrderItem.map((item) => item.productId);
+
+    const products = await firstValueFrom(
+      this.productsClient.send({ cmd: 'validate_products' }, productIds),
+    );
+
+    const theOrder = {
+      ...order,
+      orderItem: order.OrderItem.map((orderItem) => ({
+        ...orderItem,
+        name: products.find((product) => product.id === orderItem.productId)
+          .name,
+      })),
+    };
+
+    const { OrderItem, ...values } = theOrder;
+
+    return values;
   }
 
   async changeStatus(changeOrderStatusDto: ChangeOrderStatusDto) {
