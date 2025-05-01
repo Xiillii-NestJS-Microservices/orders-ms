@@ -13,6 +13,7 @@ export class OrdersController {
     return this.ordersService.create(createOrderDto);
   }
 
+  // TODO: FIX WHEN TOTAL ELEMENTS ARE LESS THAN LIMIT. Returns a empty result
   @MessagePattern('findAllOrders')
   findAll(@Payload() paginationDto: OrderPaginationDto) {
     return this.ordersService.findAll(paginationDto);
