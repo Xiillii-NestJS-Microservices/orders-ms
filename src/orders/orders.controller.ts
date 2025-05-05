@@ -9,8 +9,13 @@ export class OrdersController {
   constructor(private readonly ordersService: OrdersService) {}
 
   @MessagePattern('createOrder')
-  create(@Payload() createOrderDto: CreateOrderDto) {
-    return this.ordersService.create(createOrderDto);
+  async create(@Payload() createOrderDto: CreateOrderDto) {
+    const order = await this.ordersService.create(createOrderDto);
+    const paymentSession = await this.ordersService.createPaymenSession(order);
+    return {
+      order,
+      paymentSession,
+    };
   }
 
   // TODO: FIX WHEN TOTAL ELEMENTS ARE LESS THAN LIMIT. Returns a empty result
