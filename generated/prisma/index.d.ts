@@ -3415,6 +3415,7 @@ export namespace Prisma {
   export type OrderReceiptMinAggregateOutputType = {
     id: string | null
     orderId: string | null
+    receiptUrl: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -3422,6 +3423,7 @@ export namespace Prisma {
   export type OrderReceiptMaxAggregateOutputType = {
     id: string | null
     orderId: string | null
+    receiptUrl: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -3429,6 +3431,7 @@ export namespace Prisma {
   export type OrderReceiptCountAggregateOutputType = {
     id: number
     orderId: number
+    receiptUrl: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -3438,6 +3441,7 @@ export namespace Prisma {
   export type OrderReceiptMinAggregateInputType = {
     id?: true
     orderId?: true
+    receiptUrl?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -3445,6 +3449,7 @@ export namespace Prisma {
   export type OrderReceiptMaxAggregateInputType = {
     id?: true
     orderId?: true
+    receiptUrl?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -3452,6 +3457,7 @@ export namespace Prisma {
   export type OrderReceiptCountAggregateInputType = {
     id?: true
     orderId?: true
+    receiptUrl?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -3532,6 +3538,7 @@ export namespace Prisma {
   export type OrderReceiptGroupByOutputType = {
     id: string
     orderId: string
+    receiptUrl: string
     createdAt: Date
     updatedAt: Date
     _count: OrderReceiptCountAggregateOutputType | null
@@ -3556,6 +3563,7 @@ export namespace Prisma {
   export type OrderReceiptSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     orderId?: boolean
+    receiptUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     order?: boolean | OrderDefaultArgs<ExtArgs>
@@ -3564,6 +3572,7 @@ export namespace Prisma {
   export type OrderReceiptSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     orderId?: boolean
+    receiptUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     order?: boolean | OrderDefaultArgs<ExtArgs>
@@ -3572,6 +3581,7 @@ export namespace Prisma {
   export type OrderReceiptSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     orderId?: boolean
+    receiptUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     order?: boolean | OrderDefaultArgs<ExtArgs>
@@ -3580,11 +3590,12 @@ export namespace Prisma {
   export type OrderReceiptSelectScalar = {
     id?: boolean
     orderId?: boolean
+    receiptUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type OrderReceiptOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "orderId" | "createdAt" | "updatedAt", ExtArgs["result"]["orderReceipt"]>
+  export type OrderReceiptOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "orderId" | "receiptUrl" | "createdAt" | "updatedAt", ExtArgs["result"]["orderReceipt"]>
   export type OrderReceiptInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     order?: boolean | OrderDefaultArgs<ExtArgs>
   }
@@ -3603,6 +3614,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       orderId: string
+      receiptUrl: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["orderReceipt"]>
@@ -4031,6 +4043,7 @@ export namespace Prisma {
   interface OrderReceiptFieldRefs {
     readonly id: FieldRef<"OrderReceipt", 'String'>
     readonly orderId: FieldRef<"OrderReceipt", 'String'>
+    readonly receiptUrl: FieldRef<"OrderReceipt", 'String'>
     readonly createdAt: FieldRef<"OrderReceipt", 'DateTime'>
     readonly updatedAt: FieldRef<"OrderReceipt", 'DateTime'>
   }
@@ -4490,6 +4503,7 @@ export namespace Prisma {
   export const OrderReceiptScalarFieldEnum: {
     id: 'id',
     orderId: 'orderId',
+    receiptUrl: 'receiptUrl',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -4749,6 +4763,7 @@ export namespace Prisma {
     NOT?: OrderReceiptWhereInput | OrderReceiptWhereInput[]
     id?: StringFilter<"OrderReceipt"> | string
     orderId?: StringFilter<"OrderReceipt"> | string
+    receiptUrl?: StringFilter<"OrderReceipt"> | string
     createdAt?: DateTimeFilter<"OrderReceipt"> | Date | string
     updatedAt?: DateTimeFilter<"OrderReceipt"> | Date | string
     order?: XOR<OrderScalarRelationFilter, OrderWhereInput>
@@ -4757,6 +4772,7 @@ export namespace Prisma {
   export type OrderReceiptOrderByWithRelationInput = {
     id?: SortOrder
     orderId?: SortOrder
+    receiptUrl?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     order?: OrderOrderByWithRelationInput
@@ -4768,6 +4784,7 @@ export namespace Prisma {
     AND?: OrderReceiptWhereInput | OrderReceiptWhereInput[]
     OR?: OrderReceiptWhereInput[]
     NOT?: OrderReceiptWhereInput | OrderReceiptWhereInput[]
+    receiptUrl?: StringFilter<"OrderReceipt"> | string
     createdAt?: DateTimeFilter<"OrderReceipt"> | Date | string
     updatedAt?: DateTimeFilter<"OrderReceipt"> | Date | string
     order?: XOR<OrderScalarRelationFilter, OrderWhereInput>
@@ -4776,6 +4793,7 @@ export namespace Prisma {
   export type OrderReceiptOrderByWithAggregationInput = {
     id?: SortOrder
     orderId?: SortOrder
+    receiptUrl?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: OrderReceiptCountOrderByAggregateInput
@@ -4789,6 +4807,7 @@ export namespace Prisma {
     NOT?: OrderReceiptScalarWhereWithAggregatesInput | OrderReceiptScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"OrderReceipt"> | string
     orderId?: StringWithAggregatesFilter<"OrderReceipt"> | string
+    receiptUrl?: StringWithAggregatesFilter<"OrderReceipt"> | string
     createdAt?: DateTimeWithAggregatesFilter<"OrderReceipt"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"OrderReceipt"> | Date | string
   }
@@ -4942,6 +4961,7 @@ export namespace Prisma {
 
   export type OrderReceiptCreateInput = {
     id?: string
+    receiptUrl: string
     createdAt?: Date | string
     updatedAt?: Date | string
     order: OrderCreateNestedOneWithoutOrderReceiptInput
@@ -4950,12 +4970,14 @@ export namespace Prisma {
   export type OrderReceiptUncheckedCreateInput = {
     id?: string
     orderId: string
+    receiptUrl: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type OrderReceiptUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    receiptUrl?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     order?: OrderUpdateOneRequiredWithoutOrderReceiptNestedInput
@@ -4964,6 +4986,7 @@ export namespace Prisma {
   export type OrderReceiptUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     orderId?: StringFieldUpdateOperationsInput | string
+    receiptUrl?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4971,12 +4994,14 @@ export namespace Prisma {
   export type OrderReceiptCreateManyInput = {
     id?: string
     orderId: string
+    receiptUrl: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type OrderReceiptUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
+    receiptUrl?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4984,6 +5009,7 @@ export namespace Prisma {
   export type OrderReceiptUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     orderId?: StringFieldUpdateOperationsInput | string
+    receiptUrl?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5303,6 +5329,7 @@ export namespace Prisma {
   export type OrderReceiptCountOrderByAggregateInput = {
     id?: SortOrder
     orderId?: SortOrder
+    receiptUrl?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5310,6 +5337,7 @@ export namespace Prisma {
   export type OrderReceiptMaxOrderByAggregateInput = {
     id?: SortOrder
     orderId?: SortOrder
+    receiptUrl?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5317,6 +5345,7 @@ export namespace Prisma {
   export type OrderReceiptMinOrderByAggregateInput = {
     id?: SortOrder
     orderId?: SortOrder
+    receiptUrl?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5698,12 +5727,14 @@ export namespace Prisma {
 
   export type OrderReceiptCreateWithoutOrderInput = {
     id?: string
+    receiptUrl: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type OrderReceiptUncheckedCreateWithoutOrderInput = {
     id?: string
+    receiptUrl: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5753,12 +5784,14 @@ export namespace Prisma {
 
   export type OrderReceiptUpdateWithoutOrderInput = {
     id?: StringFieldUpdateOperationsInput | string
+    receiptUrl?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type OrderReceiptUncheckedUpdateWithoutOrderInput = {
     id?: StringFieldUpdateOperationsInput | string
+    receiptUrl?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

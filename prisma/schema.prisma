@@ -54,6 +54,8 @@ model OrderReceipt {
   order   Order  @relation(fields: [orderId], references: [id])
   orderId String @unique
 
+  receiptUrl String
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

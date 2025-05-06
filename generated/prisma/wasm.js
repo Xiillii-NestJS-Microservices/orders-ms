@@ -140,6 +140,7 @@ exports.Prisma.OrderItemScalarFieldEnum = {
 exports.Prisma.OrderReceiptScalarFieldEnum = {
   id: 'id',
   orderId: 'orderId',
+  receiptUrl: 'receiptUrl',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
