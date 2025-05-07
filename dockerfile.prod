@@ -13,6 +13,9 @@ RUN npm install
 ## Builder
 FROM node:21-alpine3.20 AS build
 
+ARG ORDERS_DATABASE_URL
+ENV DATABASE_URL=$ORDERS_DATABASE_URL
+
 WORKDIR /usr/src/app
 
 # Copy from deps, the node modules
@@ -31,6 +34,10 @@ RUN attempt=1; \
   attempt=$((attempt+1)); \
   done
 
+# The following line is commented becouse
+# the postgres database must be running
+# and reachable
+# RUN npx prisma migrate deploy
 RUN npx prisma generate
 
 
