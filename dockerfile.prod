@@ -37,7 +37,7 @@ RUN attempt=1; \
 # The following line is commented becouse
 # the postgres database must be running
 # and reachable
-# RUN npx prisma migrate deploy
+RUN npx prisma migrate deploy
 RUN npx prisma generate
 
 
